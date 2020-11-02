@@ -15,6 +15,7 @@ func _ready():
 	bullet_scn = load(bullet_scene_path)
 
 func shoot(owner):
+	$ShootSound.play()
 	var bullet = bullet_scn.instance()
 	launcher.add_child(bullet)
 	

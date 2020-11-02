@@ -16,7 +16,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
 			drag_enabled = event.pressed
-		if event.button_index == BUTTON_RIGHT:
+		if event.pressed and event.button_index == BUTTON_RIGHT:
 			if has_a_gun:
 				current_gun.shoot(hand)
 
@@ -44,6 +44,7 @@ func equip(item):
 		current_gun = null
 		has_a_gun = false
 	print("equipping "+item.name)
+	$PickupSound.play()
 	var holder= $ArmR/ArmR2/WeaponHolder
 	item.get_parent().remove_child(item)
 	$ArmR/ArmR2/WeaponHolder.add_child(item)

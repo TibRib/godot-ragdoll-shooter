@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Ragdolls/Body.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ragdolls/Player.gd" type="Script" id=2]
 [ext_resource path="res://sounds/hurt.wav" type="AudioStream" id=3]
 [ext_resource path="res://scripts/bodyPart.gd" type="Script" id=4]
-
+[ext_resource path="res://sounds/pick-up-gun.wav" type="AudioStream" id=5]
 
 [node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -75,3 +75,6 @@ script = ExtResource( 4 )
 [node name="hurtSound" type="AudioStreamPlayer2D" parent="Head" index="0"]
 position = Vector2( -17.2272, 47.8834 )
 stream = ExtResource( 3 )
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource( 5 )
