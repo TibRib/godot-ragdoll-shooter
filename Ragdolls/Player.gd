@@ -39,7 +39,8 @@ func getmp():
 
 func equip(item):
 	if current_gun != null:
-		call_deferred(current_gun.queue_free())
+		current_gun.visible = false
+		current_gun.queue_free()
 		current_gun = null
 		has_a_gun = false
 	print("equipping "+item.name)
