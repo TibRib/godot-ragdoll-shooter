@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Ragdolls/Body.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Ragdolls/Player.gd" type="Script" id=2]
+[ext_resource path="res://sounds/hurt.wav" type="AudioStream" id=3]
+[ext_resource path="res://scripts/bodyPart.gd" type="Script" id=4]
+
+
+[node name="Player" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="ArmR" parent="." index="2"]
+script = ExtResource( 4 )
+
+[node name="ArmR2" parent="ArmR" index="1"]
+script = ExtResource( 4 )
+
+[node name="hurtSound" type="AudioStreamPlayer2D" parent="ArmR/ArmR2" index="0"]
+position = Vector2( -32.9329, -51.8375 )
+rotation = 1.5708
+stream = ExtResource( 3 )
+
+[node name="hurtSound" type="AudioStreamPlayer2D" parent="ArmR" index="4"]
+position = Vector2( -32.8833, -34.2273 )
+rotation = 1.5708
+stream = ExtResource( 3 )
+
+[node name="ArmL" parent="." index="3"]
+script = ExtResource( 4 )
+
+[node name="hurtSound" type="AudioStreamPlayer2D" parent="ArmL" index="0"]
+position = Vector2( 32.8834, 1.72708 )
+rotation = -1.5708
+stream = ExtResource( 3 )
+
+[node name="ArmL2" parent="ArmL" index="2"]
+script = ExtResource( 4 )
+
+[node name="hurtSound" type="AudioStreamPlayer2D" parent="ArmL/ArmL2" index="0"]
+position = Vector2( 32.6331, -15.7927 )
+rotation = -1.5708
+stream = ExtResource( 3 )
+
+[node name="LegL" parent="." index="4"]
+script = ExtResource( 4 )
+
+[node name="hurtSound" type="AudioStreamPlayer2D" parent="LegL" index="0"]
+position = Vector2( -11.6025, -15.2838 )
+stream = ExtResource( 3 )
+
+[node name="LegL2" parent="LegL" index="2"]
+script = ExtResource( 4 )
+
+[node name="hurtSound" type="AudioStreamPlayer2D" parent="LegL/LegL2" index="0"]
+position = Vector2( -11.6025, -35.4938 )
+stream = ExtResource( 3 )
+
+[node name="LegR" parent="." index="5"]
+script = ExtResource( 4 )
+
+[node name="hurtSound" type="AudioStreamPlayer2D" parent="LegR" index="0"]
+position = Vector2( -23.0597, -15.494 )
+stream = ExtResource( 3 )
+
+[node name="LegR2" parent="LegR" index="2"]
+script = ExtResource( 4 )
+
+[node name="hurtSound" type="AudioStreamPlayer2D" parent="LegR/LegR2" index="3"]
+position = Vector2( -23.1337, -35.494 )
+stream = ExtResource( 3 )
+
+[node name="Head" parent="." index="6"]
+script = ExtResource( 4 )
+
+[node name="hurtSound" type="AudioStreamPlayer2D" parent="Head" index="0"]
+position = Vector2( -17.2272, 47.8834 )
+stream = ExtResource( 3 )

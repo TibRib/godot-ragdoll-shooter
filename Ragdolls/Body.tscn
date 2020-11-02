@@ -1,0 +1,201 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Ragdolls/Body.gd" type="Script" id=1]
+[ext_resource path="res://sprites/round.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 3.25
+height = 15.0
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 3.0
+height = 25.0
+
+[sub_resource type="CircleShape2D" id=4]
+
+[node name="Body" type="RigidBody2D" groups=[
+"Players",
+"bodyparts",
+]]
+script = ExtResource( 1 )
+
+[node name="TrunkSprite" type="Sprite" parent="."]
+position = Vector2( -0.0216799, -0.29406 )
+scale = Vector2( 0.0894767, 0.133718 )
+texture = ExtResource( 3 )
+
+[node name="TrunkShape" type="CollisionShape2D" parent="."]
+position = Vector2( 0.03403, -0.147621 )
+shape = SubResource( 1 )
+
+[node name="ArmR" type="RigidBody2D" parent="."]
+position = Vector2( 16.25, -18 )
+rotation = -1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="arm" type="Sprite" parent="ArmR"]
+position = Vector2( -0.0926514, 0.804809 )
+scale = Vector2( 0.0297212, 0.0769687 )
+texture = ExtResource( 3 )
+
+[node name="ArmR2" type="RigidBody2D" parent="ArmR"]
+position = Vector2( 0.0496063, 17.6102 )
+
+[node name="arm2" type="Sprite" parent="ArmR/ArmR2"]
+position = Vector2( 0.00317433, 0.288626 )
+scale = Vector2( 0.0302756, 0.0753744 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmR/ArmR2"]
+shape = SubResource( 2 )
+
+[node name="PinJoint" type="PinJoint2D" parent="ArmR/ArmR2"]
+position = Vector2( -0.108192, -10.6588 )
+node_a = NodePath("..")
+node_b = NodePath("../..")
+
+[node name="WeaponHolder" type="Node2D" parent="ArmR/ArmR2"]
+position = Vector2( 0.0556831, 8.46354 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmR"]
+position = Vector2( -0.0992126, 0.0496063 )
+shape = SubResource( 2 )
+
+[node name="PinJoint" type="PinJoint2D" parent="ArmR"]
+position = Vector2( -0.108192, -10.6588 )
+node_a = NodePath("..")
+node_b = NodePath("../..")
+
+[node name="ArmL" type="RigidBody2D" parent="."]
+position = Vector2( -16.25, -18 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="arm2" type="Sprite" parent="ArmL"]
+scale = Vector2( 0.0297212, 0.0769687 )
+texture = ExtResource( 3 )
+
+[node name="ArmL2" type="RigidBody2D" parent="ArmL"]
+position = Vector2( 0.250282, 17.5198 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="arm3" type="Sprite" parent="ArmL/ArmL2"]
+scale = Vector2( 0.0302756, 0.0753744 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmL/ArmL2"]
+shape = SubResource( 2 )
+
+[node name="PinJoint" type="PinJoint2D" parent="ArmL/ArmL2"]
+position = Vector2( -0.108192, -10.6588 )
+node_a = NodePath("..")
+node_b = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmL"]
+shape = SubResource( 2 )
+
+[node name="PinJoint" type="PinJoint2D" parent="ArmL"]
+position = Vector2( -0.108192, -10.6588 )
+node_a = NodePath("..")
+node_b = NodePath("../..")
+
+[node name="LegL" type="RigidBody2D" parent="."]
+position = Vector2( -6.37472, 30.1672 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Leg3" type="Sprite" parent="LegL"]
+position = Vector2( 0, 1.986 )
+scale = Vector2( 0.0316926, 0.0895727 )
+texture = ExtResource( 3 )
+
+[node name="LegL2" type="RigidBody2D" parent="LegL"]
+position = Vector2( 0, 20.21 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Leg4" type="Sprite" parent="LegL/LegL2"]
+scale = Vector2( 0.0267574, 0.103488 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LegL/LegL2"]
+shape = SubResource( 3 )
+
+[node name="PinJoint" type="PinJoint2D" parent="LegL/LegL2"]
+position = Vector2( 0, -12 )
+node_a = NodePath("..")
+node_b = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LegL"]
+shape = SubResource( 2 )
+
+[node name="PinJoint" type="PinJoint2D" parent="LegL"]
+position = Vector2( -0.108192, -10.6588 )
+node_a = NodePath("..")
+node_b = NodePath("../..")
+
+[node name="LegR" type="RigidBody2D" parent="."]
+position = Vector2( 5.0825, 30.3774 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Leg2" type="Sprite" parent="LegR"]
+position = Vector2( 0, 1.98649 )
+scale = Vector2( 0.0316926, 0.0895727 )
+texture = ExtResource( 3 )
+
+[node name="LegR2" type="RigidBody2D" parent="LegR"]
+position = Vector2( 0.074, 20 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Leg3" type="Sprite" parent="LegR/LegR2"]
+scale = Vector2( 0.0267574, 0.103488 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LegR/LegR2"]
+shape = SubResource( 3 )
+
+[node name="PinJoint" type="PinJoint2D" parent="LegR/LegR2"]
+position = Vector2( 0, -12 )
+node_a = NodePath("..")
+node_b = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LegR"]
+shape = SubResource( 2 )
+
+[node name="PinJoint" type="PinJoint2D" parent="LegR"]
+position = Vector2( -0.108192, -10.6588 )
+node_a = NodePath("..")
+node_b = NodePath("../..")
+
+[node name="Head" type="RigidBody2D" parent="."]
+position = Vector2( -0.75, -33 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HeadSprite" type="Sprite" parent="Head"]
+position = Vector2( -0.145635, 0.0733643 )
+scale = Vector2( 0.0815747, 0.0666448 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+shape = SubResource( 4 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Head"]
+position = Vector2( 0.167042, 11.2476 )
+node_a = NodePath("..")
+node_b = NodePath("../..")
