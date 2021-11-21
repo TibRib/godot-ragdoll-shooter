@@ -1,2 +1,2 @@
 # godot-ragdoll-shooter
-FOSS physics based web game built under godot
+Basic game concept of a shooter with ragdoll bodies
